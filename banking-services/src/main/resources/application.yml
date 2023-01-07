@@ -1,31 +1,35 @@
+server:
+  port: 8092
+
 spring:
   application:
     name: core-banking-service
   datasource:
     url: jdbc:mysql://localhost:3306/banking_core_service
     username: root
-    password: password
+    password: 
   jpa:
     hibernate:
       ddl-auto: none
-
-server:
-  port: 8092
+  cloud:
+    gateway:
+      routes:
+      - id: core-banking-service
+        uri: lb://core-banking-service
+        predicates:
+          - Path=/banking-core/**
+        filters:
+          - StripPrefix=1
 
 eureka:
   client:
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
 
 info:
   app:
     name: ${spring.application.name}
-
-
-## CORE BANKING SERVICE
-- id: core-banking-service
-  uri: lb://core-banking-service
-  predicates:
-    - Path=/banking-core/**
-  filters:
-    - StripPrefix=1

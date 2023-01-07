@@ -10,7 +10,7 @@ spring:
       - id: CORE-BANKING-SERVICE
         uri: lb://CORE-BANKING-SERVICE
         predicates:
-          - Path=/accounts/**
+          - Path=/api/v1/account/**
         filters:
           - name: CircuitBreaker
             args:

@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableDiscoveryClient
 @EnableConfigServer
-@SpringBootApplication
-@ComponentScan(basePackages = { "io.testapi" })
+//@SpringBootApplication
+//@ComponentScan(basePackages = { "io.testapi" })
 public class CoreBankingServiceApplication {
 
 	public static void main(String[] args) {

@@ -1,0 +1,32 @@
+      
+#SECURITY BASED CONFIGURATIONS
+app:
+  config:
+    keycloak:
+      server-url: http://localhost:8083/auth
+      realm: ABC-banking-system
+      clientId: ABC-banking-client
+      client-secret: Pude371ztqpnffyZHZKLyfAQMQxMJyCL
+
+spring:
+  application:
+    name: internet-banking-user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/banking_core_user_service
+    username: root
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8093
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+info:
+  app:
+    name: ${spring.application.name}

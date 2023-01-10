@@ -33,7 +33,7 @@ spring:
                    jwk-set-uri: ${app.config.keycloak.server-url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
                    user-info-authentication-method: header
              registration:
-                internet-banking-core-client:
+                ABC-banking-client:
                    provider: keycloak
                    clientId: ABC-banking-client
                    client-secret: Pude371ztqpnffyZHZKLyfAQMQxMJyCL
@@ -74,5 +74,5 @@ eureka:
 app:
    config:
       keycloak:
-         server-url: http://localhost:8083/auth
+         server-url: http://localhost:8083
          realm: ABC-banking-system

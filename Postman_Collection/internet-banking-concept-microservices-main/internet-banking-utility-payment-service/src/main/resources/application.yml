@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: internet-banking-utility-payment-service
+

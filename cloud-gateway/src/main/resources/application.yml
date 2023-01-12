@@ -36,7 +36,7 @@ spring:
                 ABC-banking-client:
                    provider: keycloak
                    clientId: ABC-banking-client
-                   client-secret: Pude371ztqpnffyZHZKLyfAQMQxMJyCL
+                   client-secret: rMyKFPjL3pyj3hHJRXsX1S3Mw7m9jSOM
                    authorization-grant-type: authorization_code
                    redirect-uri: http://localhost:8083/login/oauth2/code/keycloak
                    scope: openid
@@ -74,5 +74,5 @@ eureka:
 app:
    config:
       keycloak:
-         server-url: http://localhost:8083
+         server-url: http://localhost:8083/auth
          realm: ABC-banking-system

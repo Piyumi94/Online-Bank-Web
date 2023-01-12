@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableHystrix
+//@EnableHystrix
 public class CloudGatewayApplication {
 
 	public static void main(String[] args) {

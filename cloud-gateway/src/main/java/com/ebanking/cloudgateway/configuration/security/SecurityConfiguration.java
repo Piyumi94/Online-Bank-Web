@@ -1,4 +1,4 @@
-package com.ebanking.cloudgateway;
+package com.ebanking.cloudgateway.configuration.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
@@ -13,7 +13,7 @@ public class SecurityConfiguration {
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
 		http.authorizeExchange()
 				// ALLOWING REGISTER API FOR DIRECT ACCESS
-				.pathMatchers("/api/v1/bank-user/register").permitAll()
+				.pathMatchers("/user/api/v1/register").permitAll()
 				// ALL OTHER APIS ARE AUTHENTICATED
 				.anyExchange().authenticated().and().csrf().disable().oauth2Login().and().oauth2ResourceServer().jwt();
 		return http.build();

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.bankinguserservices.model.dto.User;
 import com.example.bankinguserservices.model.dto.UserUpdateRequest;
-import com.example.bankinguserservices.service.KeycloakUserService;
 import com.example.bankinguserservices.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class UserController {
 	
-	private final KeycloakUserService keycloakUserService;
+	//private final KeycloakUserService keycloakUserService;
     private final UserService userService;
 
     @PostMapping(value = "/register")
@@ -33,17 +32,17 @@ public class UserController {
         return ResponseEntity.ok(userService.createUser(request));
     }
 
-    @PatchMapping(value = "/update/{id}")
-    public ResponseEntity updateUser(@PathVariable("id") Long userId, @RequestBody UserUpdateRequest userUpdateRequest) {
-        log.info("Updating user with {}", userUpdateRequest.toString());
-        return ResponseEntity.ok(userService.updateUser(userId, userUpdateRequest));
-    }
-
-    @GetMapping
-    public ResponseEntity readUsers(Pageable pageable) {
-        log.info("Reading all users from API");
-        return ResponseEntity.ok(userService.readUsers(pageable));
-    }
+	/*
+	 * @PatchMapping(value = "/update/{id}") public ResponseEntity
+	 * updateUser(@PathVariable("id") Long userId, @RequestBody UserUpdateRequest
+	 * userUpdateRequest) { log.info("Updating user with {}",
+	 * userUpdateRequest.toString()); return
+	 * ResponseEntity.ok(userService.updateUser(userId, userUpdateRequest)); }
+	 * 
+	 * @GetMapping public ResponseEntity readUsers(Pageable pageable) {
+	 * log.info("Reading all users from API"); return
+	 * ResponseEntity.ok(userService.readUsers(pageable)); }
+	 */
 
     @GetMapping(value = "/{id}")
     public ResponseEntity readUser(@PathVariable("id") Long id) {

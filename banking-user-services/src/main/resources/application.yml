@@ -1,12 +1,4 @@
       
-#SECURITY BASED CONFIGURATIONS
-app:
-  config:
-    keycloak:
-      server-url: http://localhost:8083
-      realm: ABC-banking-system
-      clientId: ABC-banking-client
-      client-secret: rMyKFPjL3pyj3hHJRXsX1S3Mw7m9jSOM
 
 spring:
   application:

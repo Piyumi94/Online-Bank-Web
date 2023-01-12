@@ -20,33 +20,8 @@ spring:
             uri: lb://INTERNET-BANKING-USER-SERVICE
             predicates:
             - Path=/api/v1/bank-user/**
-
-   security:
-      oauth2:
-         client:
-             provider:
-                keycloak:
-                   token-uri: ${app.config.keycloak.server-url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/token
-                   authorization-uri: ${app.config.keycloak.server-url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/auth
-                   user-name-attribute: preferred_username
-                   user-info-uri: ${app.config.keycloak.server-url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/userinfo
-                   jwk-set-uri: ${app.config.keycloak.server-url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
-                   user-info-authentication-method: header
-             registration:
-                ABC-banking-client:
-                   provider: keycloak
-                   clientId: ABC-banking-client
-                   client-secret: rMyKFPjL3pyj3hHJRXsX1S3Mw7m9jSOM
-                   authorization-grant-type: authorization_code
-                   redirect-uri: http://localhost:8083/login/oauth2/code/keycloak
-                   scope: openid
-         resourceserver:
-            jwt:
-               jwk-set-uri: ${app.config.keycloak.server-url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
                
-                   
-
-   
+                    
 
 hystrix:
    command:
@@ -70,9 +45,3 @@ eureka:
          defaultZone: http://localhost:8761/eureka/
    instance:
       hostname: localhost
-
-app:
-   config:
-      keycloak:
-         server-url: http://localhost:8083/auth
-         realm: ABC-banking-system
